@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://peptide.co.id
+
+# Sitemaps
+Sitemap: https://peptide.co.id/sitemap.xml

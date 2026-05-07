@@ -1,0 +1,48 @@
+{
+  "sellers": [
+    {
+      "id": "direct-peptides-id",
+      "name": "Direct Peptides Indonesia",
+      "type": "internasional",
+      "ships_to_indonesia": true,
+      "products": ["BPC-157", "TB-500", "Ipamorelin", "CJC-1295"],
+      "website": "https://directpeptides.com",
+      "verified": true,
+      "notes": "Vendor internasional dengan pengiriman ke Indonesia. Menyediakan sertifikat analisis pihak ketiga.",
+      "affiliate_link": null
+    },
+    {
+      "id": "direct-sarms-id",
+      "name": "Direct SARMs Indonesia",
+      "type": "internasional",
+      "ships_to_indonesia": true,
+      "products": ["BPC-157", "TB-500", "CJC-1295"],
+      "website": "https://directsarms.com",
+      "verified": true,
+      "notes": "Pengiriman internasional tersedia. Produk diuji oleh laboratorium independen.",
+      "affiliate_link": null
+    },
+    {
+      "id": "indo-peptide-lab",
+      "name": "Indo Peptide Lab",
+      "type": "lokal",
+      "ships_to_indonesia": true,
+      "products": ["BPC-157", "TB-500"],
+      "website": "#",
+      "verified": false,
+      "notes": "Supplier lokal (placeholder — dalam proses verifikasi).",
+      "affiliate_link": null
+    },
+    {
+      "id": "nusantara-peptida",
+      "name": "Nusantara Peptida",
+      "type": "lokal",
+      "ships_to_indonesia": true,
+      "products": ["BPC-157", "Ipamorelin"],
+      "website": "#",
+      "verified": false,
+      "notes": "Supplier lokal (placeholder — dalam proses verifikasi).",
+      "affiliate_link": null
+    }
+  ]
+}
