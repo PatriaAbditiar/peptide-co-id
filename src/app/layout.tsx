@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | Peptide.co.id",
   },
   description:
-    "Sumber informasi terpercaya tentang peptida di Indonesia. Panduan lengkap 26+ peptida, direktori toko, dan riset terbaru.",
+    "Sumber informasi terpercaya tentang peptida di Indonesia. Panduan lengkap 40+ peptida, direktori toko, dan riset terbaru.",
   metadataBase: new URL("https://peptide.co.id"),
   openGraph: {
     type: "website",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Peptide.co.id",
     title: "Peptide.co.id — Pusat Informasi Peptida Indonesia",
     description:
-      "Sumber informasi terpercaya tentang 26+ peptida di Indonesia. Panduan, riset, dan direktori toko peptida.",
+      "Sumber informasi terpercaya tentang 40+ peptida di Indonesia. Panduan, riset, dan direktori toko peptida.",
   },
   robots: {
     index: true,

@@ -17,7 +17,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed">
-              Pusat informasi peptida terlengkap di Indonesia. 26+ panduan peptida, riset terbaru, dan direktori toko.
+              Pusat informasi peptida terlengkap di Indonesia. 40+ panduan peptida, riset terbaru, dan direktori toko.
             </p>
           </div>
 
