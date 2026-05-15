@@ -3,10 +3,35 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { glossaryTerms, getTermsByCategory } from "@/lib/glossary";
 
 export const metadata: Metadata = {
-  title: "Kamus Peptida — Glosarium Istilah & Singkatan",
+  title: "Kamus Peptida Indonesia — 30+ Istilah & Singkatan Dijelaskan",
   description:
-    "Kamus istilah peptida lengkap dalam Bahasa Indonesia. Definisi GHRH, GHS, IGF-1, BAC water, reconstitusi, U-100 syringe, dan istilah peptida lainnya.",
-  alternates: { canonical: "https://peptide.co.id/kamus" },
+    "Kamus istilah peptida lengkap dalam Bahasa Indonesia. Definisi GHRH, GHS, IGF-1, BAC water, reconstitusi, U-100 syringe, WADA, BPOM, dan istilah peptida lainnya.",
+  keywords: [
+    "kamus peptida Indonesia",
+    "istilah peptida",
+    "glosarium peptida",
+    "definisi GHRH",
+    "apa itu BAC water",
+    "U-100 syringe",
+    "IGF-1 Indonesia",
+    "reconstitusi peptida",
+  ],
+  alternates: {
+    canonical: "https://peptide.co.id/kamus",
+    languages: {
+      id: "https://peptide.co.id/kamus",
+      "id-ID": "https://peptide.co.id/kamus",
+      "x-default": "https://peptide.co.id/kamus",
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    title: "Kamus Peptida Indonesia — Glosarium Lengkap",
+    description: "30+ istilah peptida dijelaskan dalam Bahasa Indonesia.",
+    url: "https://peptide.co.id/kamus",
+    siteName: "Peptide.co.id",
+  },
 };
 
 const categoryColors: Record<string, string> = {

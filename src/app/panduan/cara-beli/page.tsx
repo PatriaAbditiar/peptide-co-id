@@ -6,9 +6,35 @@ import FAQSection from "@/components/FAQSection";
 import EmailSignup from "@/components/EmailSignup";
 
 export const metadata: Metadata = {
-  title: "Cara Beli Peptida di Indonesia dengan Aman — Panduan Lengkap",
-  description: "Panduan lengkap cara beli peptida di Indonesia: tips memilih vendor, memeriksa kualitas, memahami regulasi, dan menghindari produk palsu.",
-  alternates: { canonical: "https://peptide.co.id/panduan/cara-beli" },
+  title: "Cara Beli Peptida Indonesia dengan Aman — Tips Memilih Vendor",
+  description:
+    "Panduan lengkap cara beli peptida di Indonesia 2024: pilih vendor terpercaya, periksa CoA & kemurnian, hindari produk palsu, dan pahami bea cukai.",
+  keywords: [
+    "cara beli peptida Indonesia",
+    "tips beli peptida",
+    "vendor peptida terpercaya",
+    "CoA peptida",
+    "bea cukai peptida Indonesia",
+    "peptida palsu",
+    "beli BPC-157 Indonesia",
+    "harga peptida wajar",
+  ],
+  alternates: {
+    canonical: "https://peptide.co.id/panduan/cara-beli",
+    languages: {
+      id: "https://peptide.co.id/panduan/cara-beli",
+      "id-ID": "https://peptide.co.id/panduan/cara-beli",
+      "x-default": "https://peptide.co.id/panduan/cara-beli",
+    },
+  },
+  openGraph: {
+    type: "article",
+    locale: "id_ID",
+    title: "Cara Beli Peptida Indonesia dengan Aman",
+    description: "Tips memilih vendor, memeriksa kualitas, dan menghindari produk palsu.",
+    url: "https://peptide.co.id/panduan/cara-beli",
+    siteName: "Peptide.co.id",
+  },
 };
 
 const faqs = [

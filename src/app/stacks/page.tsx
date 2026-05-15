@@ -4,10 +4,36 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { stacks } from "@/lib/stacks";
 
 export const metadata: Metadata = {
-  title: "Stacks Peptida — Kombinasi Populer untuk Hasil Maksimal",
+  title: "Stacks Peptida Indonesia — Wolverine Stack, GH Stack & Lainnya",
   description:
-    "Panduan stack peptida — kombinasi peptida paling populer untuk recovery, anti-aging, growth hormone, fat loss, dan imunitas. Wolverine Stack, Classic GH Stack, dan lainnya.",
-  alternates: { canonical: "https://peptide.co.id/stacks" },
+    "Panduan stack peptida dalam Bahasa Indonesia. Wolverine Stack (BPC-157+TB-500), Classic GH Stack (CJC-1295+Ipamorelin), dan kombinasi populer lainnya.",
+  keywords: [
+    "stack peptida Indonesia",
+    "kombinasi peptida",
+    "Wolverine Stack",
+    "Classic GH Stack",
+    "BPC-157 TB-500 stack",
+    "CJC-1295 Ipamorelin",
+    "anti-aging stack",
+    "fat loss stack",
+    "kombinasi BPC-157",
+  ],
+  alternates: {
+    canonical: "https://peptide.co.id/stacks",
+    languages: {
+      id: "https://peptide.co.id/stacks",
+      "id-ID": "https://peptide.co.id/stacks",
+      "x-default": "https://peptide.co.id/stacks",
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    title: "Stacks Peptida Indonesia — Kombinasi Populer",
+    description: "Panduan stack peptida Indonesia: Wolverine Stack, Classic GH Stack, dan lainnya.",
+    url: "https://peptide.co.id/stacks",
+    siteName: "Peptide.co.id",
+  },
 };
 
 export default function StacksPage() {

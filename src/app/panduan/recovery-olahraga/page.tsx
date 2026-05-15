@@ -6,9 +6,35 @@ import FAQSection from "@/components/FAQSection";
 import EmailSignup from "@/components/EmailSignup";
 
 export const metadata: Metadata = {
-  title: "Peptida untuk Recovery Olahraga: Panduan Lengkap Indonesia",
-  description: "Panduan peptida untuk recovery olahraga dan pemulihan cedera di Indonesia. BPC-157, TB-500, dan peptida lainnya untuk atlet.",
-  alternates: { canonical: "https://peptide.co.id/panduan/recovery-olahraga" },
+  title: "Peptida Recovery Olahraga Indonesia — BPC-157, TB-500 untuk Atlet",
+  description:
+    "Panduan peptida untuk recovery olahraga & pemulihan cedera Indonesia. BPC-157, TB-500, Ipamorelin untuk atlet, fitness, & cedera tendon/ligamen.",
+  keywords: [
+    "peptida recovery olahraga",
+    "peptida untuk atlet",
+    "BPC-157 cedera",
+    "TB-500 recovery",
+    "peptida tendon",
+    "peptida cedera lutut",
+    "recovery peptida Indonesia",
+    "peptida fitness Indonesia",
+  ],
+  alternates: {
+    canonical: "https://peptide.co.id/panduan/recovery-olahraga",
+    languages: {
+      id: "https://peptide.co.id/panduan/recovery-olahraga",
+      "id-ID": "https://peptide.co.id/panduan/recovery-olahraga",
+      "x-default": "https://peptide.co.id/panduan/recovery-olahraga",
+    },
+  },
+  openGraph: {
+    type: "article",
+    locale: "id_ID",
+    title: "Peptida Recovery Olahraga Indonesia",
+    description: "BPC-157, TB-500, dan peptida lainnya untuk recovery cedera atlet.",
+    url: "https://peptide.co.id/panduan/recovery-olahraga",
+    siteName: "Peptide.co.id",
+  },
 };
 
 const faqs = [

@@ -5,14 +5,34 @@ import sellersData from "../../../data/sellers.json";
 import { Seller } from "@/lib/types";
 
 export const metadata: Metadata = {
-  title: "Toko Peptida Indonesia — Direktori Supplier Terpercaya",
+  title: "Toko Peptida Indonesia — Direktori Supplier Terverifikasi 2024",
   description:
-    "Direktori toko peptida terpercaya di Indonesia. Daftar supplier lokal dan internasional yang melayani pengiriman peptida ke Indonesia.",
-  alternates: { canonical: "https://peptide.co.id/toko-peptida" },
+    "Daftar toko peptida terpercaya di Indonesia. Supplier lokal & internasional yang kirim BPC-157, TB-500, Ipamorelin, Semaglutide ke Indonesia. Filter & review.",
+  keywords: [
+    "toko peptida Indonesia",
+    "beli peptida Indonesia",
+    "supplier peptida Jakarta",
+    "vendor BPC-157 Indonesia",
+    "harga peptida Indonesia",
+    "tempat beli peptida",
+    "toko peptida online",
+    "direktori supplier peptida",
+  ],
+  alternates: {
+    canonical: "https://peptide.co.id/toko-peptida",
+    languages: {
+      id: "https://peptide.co.id/toko-peptida",
+      "id-ID": "https://peptide.co.id/toko-peptida",
+      "x-default": "https://peptide.co.id/toko-peptida",
+    },
+  },
   openGraph: {
-    title: "Toko Peptida Indonesia — Direktori Supplier Terpercaya",
-    description: "Daftar supplier peptida lokal dan internasional untuk Indonesia.",
+    type: "website",
+    locale: "id_ID",
+    title: "Toko Peptida Indonesia — Direktori Supplier",
+    description: "Daftar supplier peptida lokal & internasional untuk Indonesia.",
     url: "https://peptide.co.id/toko-peptida",
+    siteName: "Peptide.co.id",
   },
 };
 

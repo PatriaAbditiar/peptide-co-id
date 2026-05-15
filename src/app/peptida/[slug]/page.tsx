@@ -9,6 +9,7 @@ import { getPeptideBySlug, getAllSlugs, getPeptideBySlug as getP } from "@/lib/p
 import RegulatoryBadge from "@/components/RegulatoryBadge";
 import QuickFactsBox from "@/components/QuickFactsBox";
 import EditorialAttribution from "@/components/EditorialAttribution";
+import ShareButtons from "@/components/ShareButtons";
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -18,16 +19,53 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const peptide = getPeptideBySlug(params.slug);
   if (!peptide) return { title: "Peptida tidak ditemukan" };
 
+  // SEO-optimized title: short, keyword-rich, includes "Indonesia"
+  const seoTitle = `${peptide.name} Indonesia — Panduan Lengkap, Manfaat & Cara Beli`;
+
+  // SEO-optimized description: 150-155 chars with keywords + CTA
+  const shortDesc = peptide.description.split(".")[0].trim();
+  const seoDesc = `${peptide.name} Indonesia: ${shortDesc.slice(0, 100)}. Panduan manfaat, risiko, dosis, dan dimana beli di Indonesia.`.slice(0, 155);
+
+  // Enriched keywords with Indonesian search intent
+  const enrichedKeywords = [
+    ...peptide.keywords,
+    `${peptide.name} Indonesia`,
+    `harga ${peptide.name}`,
+    `beli ${peptide.name}`,
+    `${peptide.name} BPOM`,
+    `cara pakai ${peptide.name}`,
+    `efek samping ${peptide.name}`,
+    `${peptide.name} review`,
+  ];
+
+  const url = `https://peptide.co.id/peptida/${peptide.slug}`;
+
   return {
-    title: `${peptide.name}: ${peptide.tagline}`,
-    description: peptide.description.slice(0, 160),
-    alternates: { canonical: `https://peptide.co.id/peptida/${peptide.slug}` },
-    openGraph: {
-      title: `${peptide.name} — Panduan Lengkap Indonesia`,
-      description: peptide.description.slice(0, 160),
-      url: `https://peptide.co.id/peptida/${peptide.slug}`,
+    title: seoTitle,
+    description: seoDesc,
+    keywords: enrichedKeywords,
+    alternates: {
+      canonical: url,
+      languages: { id: url, "id-ID": url, "x-default": url },
     },
-    keywords: peptide.keywords,
+    openGraph: {
+      type: "article",
+      locale: "id_ID",
+      title: seoTitle,
+      description: seoDesc,
+      url,
+      siteName: "Peptide.co.id",
+      publishedTime: "2024-01-15T00:00:00.000Z",
+      modifiedTime: "2024-01-15T00:00:00.000Z",
+      authors: ["Tim Editorial Peptide.co.id"],
+      section: peptide.category,
+      tags: enrichedKeywords,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: seoTitle,
+      description: seoDesc,
+    },
   };
 }
 
@@ -39,18 +77,64 @@ export default function PeptidePage({ params }: { params: { slug: string } }) {
     .map((slug) => getP(slug))
     .filter((p): p is NonNullable<typeof p> => p !== undefined);
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: `${peptide.name}: ${peptide.tagline}`,
-    description: peptide.description,
-    datePublished: "2024-01-15",
-    dateModified: "2024-01-15",
-    author: { "@type": "Organization", name: "Peptide.co.id" },
-    publisher: { "@type": "Organization", name: "Peptide.co.id", url: "https://peptide.co.id" },
-    inLanguage: "id",
-    mainEntityOfPage: `https://peptide.co.id/peptida/${peptide.slug}`,
-  };
+  const url = `https://peptide.co.id/peptida/${peptide.slug}`;
+
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      headline: `${peptide.name} Indonesia — Panduan Lengkap`,
+      description: peptide.description,
+      datePublished: "2024-01-15",
+      dateModified: "2024-01-15",
+      author: {
+        "@type": "Organization",
+        name: "Tim Editorial Peptide.co.id",
+        url: "https://peptide.co.id/tentang",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Peptide.co.id",
+        url: "https://peptide.co.id",
+        logo: { "@type": "ImageObject", url: "https://peptide.co.id/og-image.png" },
+      },
+      inLanguage: "id-ID",
+      mainEntityOfPage: url,
+      url,
+      audience: {
+        "@type": "Audience",
+        geographicArea: { "@type": "Country", name: "Indonesia" },
+      },
+      lastReviewed: "2024-01-15",
+      about: {
+        "@type": peptide.regulatoryStatus === "fda-approved" ? "Drug" : "MedicalEntity",
+        name: peptide.name,
+        description: peptide.tagline,
+        ...(peptide.regulatoryStatus === "fda-approved" && {
+          legalStatus: "FDA approved",
+        }),
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: `${peptide.name} Indonesia — Panduan Lengkap, Manfaat & Cara Beli`,
+      description: peptide.description.slice(0, 200),
+      datePublished: "2024-01-15",
+      dateModified: "2024-01-15",
+      author: { "@type": "Organization", name: "Tim Editorial Peptide.co.id" },
+      publisher: {
+        "@type": "Organization",
+        name: "Peptide.co.id",
+        url: "https://peptide.co.id",
+        logo: { "@type": "ImageObject", url: "https://peptide.co.id/og-image.png" },
+      },
+      inLanguage: "id-ID",
+      mainEntityOfPage: url,
+      articleSection: peptide.category,
+      keywords: peptide.keywords.join(", "),
+    },
+  ];
 
   return (
     <article className="bg-white">
@@ -232,6 +316,8 @@ export default function PeptidePage({ params }: { params: { slug: string } }) {
             </div>
           </section>
         )}
+
+        <ShareButtons url={`/peptida/${peptide.slug}`} title={`${peptide.name} Indonesia — Panduan Lengkap`} />
 
         {/* Email */}
         <section className="mt-14">

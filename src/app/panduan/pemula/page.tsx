@@ -7,10 +7,36 @@ import EmailSignup from "@/components/EmailSignup";
 import { categories, peptides } from "@/lib/peptides";
 
 export const metadata: Metadata = {
-  title: "Panduan Pemula: Apa Itu Peptida dan Mengapa Orang Menggunakannya",
+  title: "Panduan Pemula Peptida Indonesia — Apa Itu Peptida & Cara Mulai",
   description:
-    "Panduan pemula peptida Indonesia: apa itu peptida, mengapa orang menggunakannya, jenis-jenis populer, status legal di Indonesia, dan tips membeli dengan aman.",
-  alternates: { canonical: "https://peptide.co.id/panduan/pemula" },
+    "Panduan pemula peptida dalam Bahasa Indonesia: apa itu peptida, manfaat, jenis populer (BPC-157, Semaglutide), status legal BPOM, dan tips beli dengan aman.",
+  keywords: [
+    "panduan peptida pemula",
+    "apa itu peptida",
+    "peptida Indonesia",
+    "cara mulai peptida",
+    "jenis peptida",
+    "peptida adalah",
+    "manfaat peptida",
+    "peptida BPOM",
+    "peptida legal Indonesia",
+  ],
+  alternates: {
+    canonical: "https://peptide.co.id/panduan/pemula",
+    languages: {
+      id: "https://peptide.co.id/panduan/pemula",
+      "id-ID": "https://peptide.co.id/panduan/pemula",
+      "x-default": "https://peptide.co.id/panduan/pemula",
+    },
+  },
+  openGraph: {
+    type: "article",
+    locale: "id_ID",
+    title: "Panduan Pemula Peptida Indonesia",
+    description: "Apa itu peptida dan mengapa semakin populer di Indonesia? Mulai dari sini.",
+    url: "https://peptide.co.id/panduan/pemula",
+    siteName: "Peptide.co.id",
+  },
 };
 
 const faqs = [

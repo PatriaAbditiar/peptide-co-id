@@ -4,27 +4,101 @@ import ReconCalculator from "@/components/ReconCalculator";
 import DisclaimerBanner from "@/components/DisclaimerBanner";
 
 export const metadata: Metadata = {
-  title: "Kalkulator Reconstitusi Peptida — BAC Water & Dosis",
+  title: "Kalkulator Reconstitusi Peptida — BAC Water, Dosis & Unit Syringe",
   description:
-    "Kalkulator reconstitusi peptida gratis. Hitung konsentrasi, volume per dosis, dan unit syringe (U-100) untuk BPC-157, TB-500, Semaglutide, dan peptida lainnya.",
-  alternates: { canonical: "https://peptide.co.id/kalkulator" },
+    "Kalkulator reconstitusi peptida gratis dalam Bahasa Indonesia. Hitung konsentrasi, volume per dosis, dan unit syringe U-100 untuk BPC-157, TB-500, Semaglutide.",
+  keywords: [
+    "kalkulator reconstitusi peptida",
+    "kalkulator dosis peptida Indonesia",
+    "BAC water calculator",
+    "U-100 syringe peptida",
+    "konsentrasi peptida",
+    "dosis BPC-157",
+    "dosis Semaglutide",
+    "cara hitung dosis peptida",
+  ],
+  alternates: {
+    canonical: "https://peptide.co.id/kalkulator",
+    languages: {
+      id: "https://peptide.co.id/kalkulator",
+      "id-ID": "https://peptide.co.id/kalkulator",
+      "x-default": "https://peptide.co.id/kalkulator",
+    },
+  },
   openGraph: {
+    type: "website",
+    locale: "id_ID",
     title: "Kalkulator Reconstitusi Peptida Indonesia",
-    description: "Hitung dosis peptida dengan akurat. BAC water, konsentrasi, dan unit syringe.",
+    description: "Hitung dosis peptida dengan akurat. BAC water, konsentrasi, dan unit syringe U-100.",
     url: "https://peptide.co.id/kalkulator",
+    siteName: "Peptide.co.id",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kalkulator Reconstitusi Peptida Indonesia",
+    description: "Hitung dosis peptida dengan akurat. BAC water, konsentrasi, dan unit syringe U-100.",
   },
 };
 
 export default function KalkulatorPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "Kalkulator Reconstitusi Peptida",
-    url: "https://peptide.co.id/kalkulator",
-    applicationCategory: "HealthApplication",
-    inLanguage: "id",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "IDR" },
-  };
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      name: "Kalkulator Reconstitusi Peptida",
+      url: "https://peptide.co.id/kalkulator",
+      applicationCategory: "HealthApplication",
+      operatingSystem: "Web",
+      inLanguage: "id-ID",
+      offers: { "@type": "Offer", price: "0", priceCurrency: "IDR" },
+      audience: {
+        "@type": "Audience",
+        geographicArea: { "@type": "Country", name: "Indonesia" },
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "Cara Reconstitusi Peptida dengan Akurat",
+      description:
+        "Panduan langkah demi langkah untuk reconstitusi peptida lyophilized dengan BAC water dan menghitung dosis yang tepat menggunakan syringe U-100.",
+      inLanguage: "id-ID",
+      totalTime: "PT5M",
+      estimatedCost: { "@type": "MonetaryAmount", currency: "IDR", value: "0" },
+      supply: [
+        { "@type": "HowToSupply", name: "Vial peptida lyophilized" },
+        { "@type": "HowToSupply", name: "Bacteriostatic water (BAC water)" },
+        { "@type": "HowToSupply", name: "Syringe insulin U-100" },
+      ],
+      tool: [{ "@type": "HowToTool", name: "Kalkulator Reconstitusi Peptide.co.id" }],
+      step: [
+        {
+          "@type": "HowToStep",
+          name: "Masukkan ukuran vial",
+          text: "Masukkan jumlah mg peptida total dalam vial Anda. Contoh: BPC-157 5 mg.",
+          position: 1,
+        },
+        {
+          "@type": "HowToStep",
+          name: "Tambahkan volume BAC water",
+          text: "Masukkan volume bacteriostatic water yang akan ditambahkan. Umumnya 2 mL untuk vial 5 mg.",
+          position: 2,
+        },
+        {
+          "@type": "HowToStep",
+          name: "Set dosis target",
+          text: "Masukkan berapa mg atau mcg per injeksi yang ingin diberikan.",
+          position: 3,
+        },
+        {
+          "@type": "HowToStep",
+          name: "Tarik di syringe U-100",
+          text: "Kalkulator akan menampilkan jumlah unit pada syringe U-100 yang harus ditarik untuk dosis tersebut.",
+          position: 4,
+        },
+      ],
+    },
+  ];
 
   return (
     <article className="bg-white">

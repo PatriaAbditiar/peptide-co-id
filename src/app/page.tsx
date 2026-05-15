@@ -13,14 +13,65 @@ const stats = [
 const popularPeptides = ["bpc-157", "tb-500", "ipamorelin", "semaglutide", "ghk-cu", "pt-141"];
 
 export default function HomePage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Peptide.co.id",
-    url: "https://peptide.co.id",
-    description: "Pusat informasi peptida terlengkap di Indonesia.",
-    inLanguage: "id",
-  };
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://peptide.co.id/#website",
+      name: "Peptide.co.id",
+      url: "https://peptide.co.id",
+      description: "Pusat informasi peptida terlengkap di Indonesia — 40+ panduan peptida, kalkulator dosis, stack guide, dan direktori toko.",
+      inLanguage: "id-ID",
+      publisher: { "@id": "https://peptide.co.id/#organization" },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: "https://peptide.co.id/peptida?q={search_term_string}",
+        },
+        "query-input": "required name=search_term_string",
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://peptide.co.id/#organization",
+      name: "Peptide.co.id",
+      url: "https://peptide.co.id",
+      logo: "https://peptide.co.id/og-image.png",
+      description: "Pusat informasi peptida pertama dan terlengkap di Indonesia.",
+      foundingDate: "2024",
+      areaServed: { "@type": "Country", name: "Indonesia" },
+      knowsLanguage: ["id", "en"],
+      sameAs: [],
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: "info@peptide.co.id",
+        contactType: "editorial",
+        availableLanguage: ["Indonesian", "English"],
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "@id": "https://peptide.co.id/#webpage",
+      url: "https://peptide.co.id",
+      name: "Peptide.co.id — Pusat Informasi Peptida Indonesia",
+      isPartOf: { "@id": "https://peptide.co.id/#website" },
+      about: {
+        "@type": "MedicalEntity",
+        name: "Peptida Terapeutik dan Riset",
+      },
+      audience: {
+        "@type": "Audience",
+        audienceType: "Masyarakat umum Indonesia, atlet, peneliti, fitness enthusiast",
+        geographicArea: { "@type": "Country", name: "Indonesia" },
+      },
+      inLanguage: "id-ID",
+      lastReviewed: "2024-01-15",
+      specialty: { "@type": "MedicalSpecialty", name: "Endocrinology / Sports Medicine" },
+    },
+  ];
 
   const featured = peptides.filter((p) => popularPeptides.includes(p.slug));
   const fdaApproved = peptides.filter((p) => p.regulatoryStatus === "fda-approved");
