@@ -2,14 +2,19 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { SITE_CONFIG } from "@/lib/config";
 
-const navItems = [
+const allNavItems = [
   { href: "/peptida", label: "Peptida" },
   { href: "/stacks", label: "Stacks" },
   { href: "/kalkulator", label: "Kalkulator" },
-  { href: "/toko-peptida", label: "Toko" },
+  { href: "/toko-peptida", label: "Toko", requiresSellers: true },
   { href: "/kamus", label: "Kamus" },
 ];
+
+const navItems = allNavItems.filter(
+  (item) => !item.requiresSellers || SITE_CONFIG.SHOW_SELLERS
+);
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);

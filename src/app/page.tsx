@@ -3,6 +3,7 @@ import EmailSignup from "@/components/EmailSignup";
 import { categories, peptides } from "@/lib/peptides";
 import { stacks } from "@/lib/stacks";
 import RegulatoryBadge from "@/components/RegulatoryBadge";
+import { SITE_CONFIG } from "@/lib/config";
 
 const stats = [
   { value: `${peptides.length}+`, label: "Panduan Peptida" },
@@ -367,26 +368,28 @@ export default function HomePage() {
       </section>
 
       {/* Seller CTA */}
-      <section className="mx-4 sm:mx-6 lg:mx-8 mb-20">
-        <div className="max-w-7xl mx-auto rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden">
-          <div className="px-8 sm:px-12 py-12 sm:py-16">
-            <h2 className="text-2xl sm:text-3xl font-serif text-white">
-              Cari Toko Peptida Terpercaya
-            </h2>
-            <p className="mt-3 text-slate-400 max-w-xl">
-              Direktori toko peptida lokal dan internasional yang melayani pengiriman ke Indonesia. Terverifikasi dan terpercaya.
-            </p>
-            <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <Link href="/toko-peptida" className="px-6 py-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-medium rounded-xl hover:shadow-lg hover:shadow-teal-500/25 transition-all text-center">
-                Lihat Direktori Toko
-              </Link>
-              <Link href="/panduan/cara-beli" className="px-6 py-3 border border-slate-600 text-slate-300 font-medium rounded-xl hover:bg-slate-700/50 transition-all text-center">
-                Panduan Cara Beli
-              </Link>
+      {SITE_CONFIG.SHOW_SELLERS && (
+        <section className="mx-4 sm:mx-6 lg:mx-8 mb-20">
+          <div className="max-w-7xl mx-auto rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden">
+            <div className="px-8 sm:px-12 py-12 sm:py-16">
+              <h2 className="text-2xl sm:text-3xl font-serif text-white">
+                Cari Toko Peptida Terpercaya
+              </h2>
+              <p className="mt-3 text-slate-400 max-w-xl">
+                Direktori toko peptida lokal dan internasional yang melayani pengiriman ke Indonesia. Terverifikasi dan terpercaya.
+              </p>
+              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                <Link href="/toko-peptida" className="px-6 py-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-medium rounded-xl hover:shadow-lg hover:shadow-teal-500/25 transition-all text-center">
+                  Lihat Direktori Toko
+                </Link>
+                <Link href="/panduan/cara-beli" className="px-6 py-3 border border-slate-600 text-slate-300 font-medium rounded-xl hover:bg-slate-700/50 transition-all text-center">
+                  Panduan Cara Beli
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Email */}
       <section className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">

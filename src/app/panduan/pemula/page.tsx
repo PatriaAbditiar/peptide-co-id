@@ -5,6 +5,7 @@ import DisclaimerBanner from "@/components/DisclaimerBanner";
 import FAQSection from "@/components/FAQSection";
 import EmailSignup from "@/components/EmailSignup";
 import { categories, peptides } from "@/lib/peptides";
+import { SITE_CONFIG } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Panduan Pemula Peptida Indonesia — Apa Itu Peptida & Cara Mulai",
@@ -186,11 +187,13 @@ export default function PanduanPemulaPage() {
               <h3 className="mt-3 font-semibold text-slate-900">Cara Beli</h3>
               <p className="mt-1 text-sm text-slate-500">Tips membeli dengan aman</p>
             </Link>
-            <Link href="/toko-peptida" className="p-5 rounded-2xl border border-slate-200/80 bg-white hover:border-teal-300 hover:shadow-md transition-all">
-              <span className="text-2xl">🏪</span>
-              <h3 className="mt-3 font-semibold text-slate-900">Direktori Toko</h3>
-              <p className="mt-1 text-sm text-slate-500">Supplier terpercaya</p>
-            </Link>
+            {SITE_CONFIG.SHOW_SELLERS && (
+              <Link href="/toko-peptida" className="p-5 rounded-2xl border border-slate-200/80 bg-white hover:border-teal-300 hover:shadow-md transition-all">
+                <span className="text-2xl">🏪</span>
+                <h3 className="mt-3 font-semibold text-slate-900">Direktori Toko</h3>
+                <p className="mt-1 text-sm text-slate-500">Supplier terpercaya</p>
+              </Link>
+            )}
           </div>
         </section>
 

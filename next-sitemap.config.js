@@ -6,7 +6,7 @@ module.exports = {
   changefreq: "weekly",
   priority: 0.7,
   sitemapSize: 5000,
-  exclude: ["/api/*", "/server-sitemap.xml"],
+  exclude: ["/api/*", "/server-sitemap.xml", "/toko-peptida"],
 
   // Tune priority + changefreq per route
   transform: async (config, path) => {

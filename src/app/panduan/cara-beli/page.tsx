@@ -4,6 +4,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import DisclaimerBanner from "@/components/DisclaimerBanner";
 import FAQSection from "@/components/FAQSection";
 import EmailSignup from "@/components/EmailSignup";
+import { SITE_CONFIG } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Cara Beli Peptida Indonesia dengan Aman — Tips Memilih Vendor",
@@ -150,20 +151,22 @@ export default function CaraBeliPage() {
           </div>
         </section>
 
-        <section className="mt-12">
-          <div className="rounded-3xl bg-gradient-to-br from-teal-50 to-cyan-50 border border-teal-100/60 p-8">
-            <h2 className="text-2xl font-serif text-teal-900">Siap Mencari Supplier?</h2>
-            <p className="mt-2 text-sm text-teal-800">
-              Kunjungi direktori toko peptida kami untuk menemukan supplier yang sudah kami kumpulkan informasinya.
-            </p>
-            <Link href="/toko-peptida" className="mt-5 inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-teal-600 to-cyan-600 text-white text-sm font-medium rounded-xl hover:shadow-lg hover:shadow-teal-500/25 transition-all">
-              Lihat Direktori Toko Peptida
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
-        </section>
+        {SITE_CONFIG.SHOW_SELLERS && (
+          <section className="mt-12">
+            <div className="rounded-3xl bg-gradient-to-br from-teal-50 to-cyan-50 border border-teal-100/60 p-8">
+              <h2 className="text-2xl font-serif text-teal-900">Siap Mencari Supplier?</h2>
+              <p className="mt-2 text-sm text-teal-800">
+                Kunjungi direktori toko peptida kami untuk menemukan supplier yang sudah kami kumpulkan informasinya.
+              </p>
+              <Link href="/toko-peptida" className="mt-5 inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-teal-600 to-cyan-600 text-white text-sm font-medium rounded-xl hover:shadow-lg hover:shadow-teal-500/25 transition-all">
+                Lihat Direktori Toko Peptida
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
+          </section>
+        )}
 
         <FAQSection faqs={faqs} />
 

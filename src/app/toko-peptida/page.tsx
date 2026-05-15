@@ -1,8 +1,10 @@
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
 import SellerFilter from "@/components/SellerFilter";
 import sellersData from "../../../data/sellers.json";
 import { Seller } from "@/lib/types";
+import { SITE_CONFIG } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Toko Peptida Indonesia — Direktori Supplier Terverifikasi 2024",
@@ -37,6 +39,10 @@ export const metadata: Metadata = {
 };
 
 export default function TokoPeptidaPage() {
+  if (!SITE_CONFIG.SHOW_SELLERS) {
+    notFound();
+  }
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",

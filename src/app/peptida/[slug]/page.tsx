@@ -10,6 +10,7 @@ import RegulatoryBadge from "@/components/RegulatoryBadge";
 import QuickFactsBox from "@/components/QuickFactsBox";
 import EditorialAttribution from "@/components/EditorialAttribution";
 import ShareButtons from "@/components/ShareButtons";
+import { SITE_CONFIG } from "@/lib/config";
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -275,21 +276,23 @@ export default function PeptidePage({ params }: { params: { slug: string } }) {
         </section>
 
         {/* Buying Tips */}
-        <section className="mt-12">
-          <h2 className="text-2xl sm:text-3xl font-serif text-slate-900 mb-4">
-            Dimana Beli {peptide.name} di Indonesia
-          </h2>
-          <p className="text-slate-600 leading-relaxed">{peptide.sections.buyingTips}</p>
-          <Link
-            href="/toko-peptida"
-            className="mt-5 inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-teal-600 to-cyan-600 text-white text-sm font-medium rounded-xl hover:shadow-lg hover:shadow-teal-500/25 transition-all"
-          >
-            Lihat Direktori Toko Peptida
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
-        </section>
+        {SITE_CONFIG.SHOW_SELLERS && (
+          <section className="mt-12">
+            <h2 className="text-2xl sm:text-3xl font-serif text-slate-900 mb-4">
+              Dimana Beli {peptide.name} di Indonesia
+            </h2>
+            <p className="text-slate-600 leading-relaxed">{peptide.sections.buyingTips}</p>
+            <Link
+              href="/toko-peptida"
+              className="mt-5 inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-teal-600 to-cyan-600 text-white text-sm font-medium rounded-xl hover:shadow-lg hover:shadow-teal-500/25 transition-all"
+            >
+              Lihat Direktori Toko Peptida
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </section>
+        )}
 
         {/* FAQ */}
         <FAQSection faqs={peptide.faqs} />
